@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/layout_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -20,16 +21,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_normal"
             android:text="@string/txt_simple_help"
-            android:textColor="@color/colorAccent"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent" />
 
         <Button
             android:id="@+id/btn_start"
-            android:textColor="@color/colorAccent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:textColor="@color/colorAccent" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
