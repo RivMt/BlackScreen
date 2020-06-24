@@ -1,11 +1,17 @@
 package io.rivmt.deepdark
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.WindowManager
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClickListener {
+
+    private val TAG = "MainAct"
 
     var nowRunning: Boolean = false
 
@@ -13,24 +19,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         //Button
-        btn_start.setOnLongClickListener(this)
+        btn_start.setOnClickListener(this)
+        layout_master.setOnLongClickListener(this)
     }
 
     override fun onClick(v: View?) {
-        when(v) {
-            btn_start -> {
+        when(v?.id) {
+            R.id.btn_start -> {
                 nowRunning = true
                 layout_main.visibility = View.GONE
+                Log.d(TAG, "Activate")
+                Toast.makeText(this, getString(R.string.txt_start_msg), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     override fun onLongClick(v: View?): Boolean {
-        when(v) {
-            layout_master -> {
+        when(v?.id) {
+            R.id.layout_master -> {
                 nowRunning = false
                 layout_main.visibility = View.VISIBLE
+                Log.d(TAG, "Deactivate")
+                Toast.makeText(this, getString(R.string.txt_end_msg), Toast.LENGTH_SHORT).show()
             }
             else -> return false
         }

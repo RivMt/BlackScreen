@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">DeepDark</string>
 
-    <string name="txt_simple_help">Double touch to show below button</string>
+    <string name="txt_simple_help">Long press to show below button</string>
     <string name="txt_start">Start</string>
     <string name="txt_end">End</string>
+    <string name="txt_start_msg">Black Fullscreen Activated</string>
+    <string name="txt_end_msg">Black Fullscreen Deactivated</string>
+
 </resources>
