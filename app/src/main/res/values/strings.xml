@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DeepDark</string>
+
+    <string name="txt_simple_help">Double touch to show below button</string>
 </resources>
