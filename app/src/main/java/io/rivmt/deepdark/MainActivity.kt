@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Fullscreen
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Button
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
                 layout_main.visibility = View.GONE
                 Log.d(TAG, "Activate")
                 Toast.makeText(this, getString(R.string.txt_start_msg), Toast.LENGTH_SHORT).show()
+                window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             }
         }
     }
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
                 layout_main.visibility = View.VISIBLE
                 Log.d(TAG, "Deactivate")
                 Toast.makeText(this, getString(R.string.txt_end_msg), Toast.LENGTH_SHORT).show()
+                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             }
             else -> return false
         }
