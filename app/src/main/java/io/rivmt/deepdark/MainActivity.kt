@@ -53,7 +53,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
 
     private fun enableDarkScreen() {
         nowRunning = true
+
+        //Layout
         layout_main.visibility = View.GONE
+        btn_settings.visibility = View.GONE
+
         Log.d(TAG, "Activate")
         Toast.makeText(this, getString(R.string.txt_start_msg), Toast.LENGTH_SHORT).show()
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -61,7 +65,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
 
     private fun disableDarkScreen() {
         nowRunning = false
+
+        //Layout
         layout_main.visibility = View.VISIBLE
+        btn_settings.visibility = View.VISIBLE
+
         Log.d(TAG, "Deactivate")
         Toast.makeText(this, getString(R.string.txt_end_msg), Toast.LENGTH_SHORT).show()
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
