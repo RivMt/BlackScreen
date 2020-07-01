@@ -27,14 +27,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
         layout_master.setOnLongClickListener(this)
     }
 
+    override fun onPause() {
+        super.onPause()
+        disableDarkScreen()
+    }
+
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btn_start -> {
-                nowRunning = true
-                layout_main.visibility = View.GONE
-                Log.d(TAG, "Activate")
-                Toast.makeText(this, getString(R.string.txt_start_msg), Toast.LENGTH_SHORT).show()
-                window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                enableDarkScreen()
             }
         }
     }
@@ -42,15 +43,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
     override fun onLongClick(v: View?): Boolean {
         when(v?.id) {
             R.id.layout_master -> {
-                nowRunning = false
-                layout_main.visibility = View.VISIBLE
-                Log.d(TAG, "Deactivate")
-                Toast.makeText(this, getString(R.string.txt_end_msg), Toast.LENGTH_SHORT).show()
-                window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                disableDarkScreen()
             }
             else -> return false
         }
 
         return true
+    }
+
+    private fun enableDarkScreen() {
+        nowRunning = true
+        layout_main.visibility = View.GONE
+        Log.d(TAG, "Activate")
+        Toast.makeText(this, getString(R.string.txt_start_msg), Toast.LENGTH_SHORT).show()
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+    }
+
+    private fun disableDarkScreen() {
+        nowRunning = false
+        layout_main.visibility = View.VISIBLE
+        Log.d(TAG, "Deactivate")
+        Toast.makeText(this, getString(R.string.txt_end_msg), Toast.LENGTH_SHORT).show()
+        window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 }
