@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
 
         //Layout
         layout_main.visibility = View.GONE
-        btn_settings.visibility = View.GONE
+        //btn_settings.visibility = View.GONE
 
         Log.d(TAG, "Activate")
         Toast.makeText(this, getString(R.string.txt_start_msg), Toast.LENGTH_SHORT).show()
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClick
 
         //Layout
         layout_main.visibility = View.VISIBLE
-        btn_settings.visibility = View.VISIBLE
+        //btn_settings.visibility = View.VISIBLE
 
         Log.d(TAG, "Deactivate")
         Toast.makeText(this, getString(R.string.txt_end_msg), Toast.LENGTH_SHORT).show()
