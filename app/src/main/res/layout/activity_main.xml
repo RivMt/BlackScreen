@@ -45,6 +45,7 @@
         android:tint="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_settings_black_24dp" />
+        app:srcCompat="@drawable/ic_settings_black_24dp"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
